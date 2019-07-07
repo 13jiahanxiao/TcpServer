@@ -1,0 +1,7 @@
+D:\Unity\Project\Inter\TcpClient\bin\Debug\TcpClient.exe.config
+D:\Unity\Project\Inter\TcpClient\bin\Debug\TcpClient.exe
+D:\Unity\Project\Inter\TcpClient\bin\Debug\TcpClient.pdb
+D:\Unity\Project\Inter\TcpClient\obj\Debug\TcpClient.csprojAssemblyReference.cache
+D:\Unity\Project\Inter\TcpClient\obj\Debug\TcpClient.csproj.CoreCompileInputs.cache
+D:\Unity\Project\Inter\TcpClient\obj\Debug\TcpClient.exe
+D:\Unity\Project\Inter\TcpClient\obj\Debug\TcpClient.pdb
