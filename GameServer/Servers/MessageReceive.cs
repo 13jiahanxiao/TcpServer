@@ -38,6 +38,7 @@ namespace GameServer.Servers
         public void ReadMessage(int Amount,Action<RequestCode,ActionCode,string> processMassageCallback)
         {
             _StartIndex += Amount;
+
             while (true)
             {
                 if (StartIndex <= 4) return;
@@ -51,7 +52,7 @@ namespace GameServer.Servers
                     string s = Encoding.UTF8.GetString(Data, 12, count - 8);
                     _LastString = s;
                     processMassageCallback(requestCode, actionCode, s);
-                    Array.Copy(_Data, count + 12, _Data, 0, _StartIndex - 12 - count);
+                    Array.Copy(_Data, count + 4, _Data, 0, _StartIndex - 4 - count);
                     _StartIndex -= (count + 4);
                 }
                 else
@@ -66,8 +67,7 @@ namespace GameServer.Servers
             byte[] actionBytes = BitConverter.GetBytes((int)actionCode);
             byte[] dataBytes = Encoding.UTF8.GetBytes(data);
             byte[] amount = BitConverter.GetBytes( (int)actionBytes.Length + dataBytes.Length);
-            amount.Concat(actionBytes).Concat(dataBytes);
-            return amount;
+            return amount.Concat(actionBytes).Concat(dataBytes).ToArray<byte>();
         }
     }
 }

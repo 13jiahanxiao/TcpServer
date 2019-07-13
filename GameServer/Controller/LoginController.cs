@@ -17,7 +17,7 @@ namespace GameServer.Controller
         {
             _RequestCode = RequestCode.LoginRequest;
         }
-        public string Login(string data, Server server, Client client)
+        public string LoginAction(string data, Server server, Client client)
         {
             string[] str = data.Split(',');
             User user= dao.VerifyUser(client.mySqlCon, str[0], str[1]);
@@ -27,7 +27,7 @@ namespace GameServer.Controller
             }
             else
             {
-                return ((int)ReturnEnum.Fail).ToString();
+               return ((int)ReturnEnum.Fail).ToString();
             }
         }
     }

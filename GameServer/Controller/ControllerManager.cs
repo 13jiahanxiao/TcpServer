@@ -24,11 +24,11 @@ namespace GameServer.Controller
         public void InitController()
         {
             DefaultController controller = new DefaultController();
-            controllerDict.Add(controller.Request, controller);
+            controllerDict.Add(RequestCode.RegisterRequest,new RegisterController());
             controllerDict.Add(RequestCode.LoginRequest, new LoginController());
         }
 
-        public void HandleRequest(RequestCode requestCode, ActionCode actionCode, string data, Client client)
+        public void HandleRequest(RequestCode requestCode, ActionCode actionCode, string data, Client client,Server server)
         {
             BaseController controller;
             bool isGet = controllerDict.TryGetValue(requestCode, out controller);
@@ -36,20 +36,20 @@ namespace GameServer.Controller
             {
                 return;
             }
-            string methodName = Enum.GetName(typeof(Action), actionCode);
+            string methodName = Enum.GetName(typeof(ActionCode), actionCode);
             MethodInfo mi = controller.GetType().GetMethod(methodName);
             if (mi == null)
             {
                 Console.WriteLine("无法得到对应的controller");
                 return;
             }
-            object[] parameter = new object[] { data };
+            object[] parameter = new object[] { data ,server,client};
             object o = mi.Invoke(controller, parameter);
             if (o == null || string.IsNullOrEmpty(o as string))
             {
                 Console.WriteLine("无法得到对应的方法");
                 return;
-            }
+            }        
             server.SendResponse(client, actionCode, o as string);
         }
     }

@@ -48,6 +48,7 @@ namespace GameServer.Servers
             Client client = new Client(ClientSocket, this);
             client.Start();
             clientList.Add(client);
+            serverSocket.BeginAccept(AcceptCallBack, null);
         }
 
         public void RemoveClient(Client client)
@@ -65,7 +66,7 @@ namespace GameServer.Servers
 
         public void HandleRequset(RequestCode requestCode, ActionCode actionCode, string data, Client client)
         {
-            controllerManager.HandleRequest(requestCode, actionCode, data, client);
+            controllerManager.HandleRequest(requestCode, actionCode, data, client,this);
         }
     }
 }

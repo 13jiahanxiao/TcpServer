@@ -1,0 +1,12 @@
+D:\Unity\Project\Inter\MySqlConnect\bin\Debug\MySqlConnect.exe.config
+D:\Unity\Project\Inter\MySqlConnect\bin\Debug\MySqlConnect.exe
+D:\Unity\Project\Inter\MySqlConnect\bin\Debug\MySqlConnect.pdb
+D:\Unity\Project\Inter\MySqlConnect\bin\Debug\MySql.Data.dll
+D:\Unity\Project\Inter\MySqlConnect\bin\Debug\Google.Protobuf.dll
+D:\Unity\Project\Inter\MySqlConnect\bin\Debug\BouncyCastle.Crypto.dll
+D:\Unity\Project\Inter\MySqlConnect\bin\Debug\MySql.Data.xml
+D:\Unity\Project\Inter\MySqlConnect\obj\Debug\MySqlConnect.csprojAssemblyReference.cache
+D:\Unity\Project\Inter\MySqlConnect\obj\Debug\MySqlConnect.csproj.CoreCompileInputs.cache
+D:\Unity\Project\Inter\MySqlConnect\obj\Debug\MySqlConnect.csproj.CopyComplete
+D:\Unity\Project\Inter\MySqlConnect\obj\Debug\MySqlConnect.exe
+D:\Unity\Project\Inter\MySqlConnect\obj\Debug\MySqlConnect.pdb

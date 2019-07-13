@@ -11,20 +11,20 @@ namespace MySqlConnect
     {
         static void Main(string[] args)
         {
-            string mctStr = "database=game_db;data source=127.0.0.1;port=3306;user=root;password=763980";
+            string mctStr = "database=game_player;data source=127.0.0.1;port=3306;user=root;password=763980";
             MySqlConnection mct = new MySqlConnection(mctStr);
 
             mct.Open();
 
             #region Found
-            //MySqlCommand cmd = new MySqlCommand("select * from user",mct);
+            //MySqlCommand cmd = new MySqlCommand("select * from account",mct);
 
             //MySqlDataReader reader = cmd.ExecuteReader();
 
             //while (reader.Read())
             //{
-            //    string name = reader.GetString("username");
-            //    string password = reader.GetString("userpassword");
+            //    string name = reader.GetString("account_name");
+            //    string password = reader.GetString("account_password");
             //    Console.Write(name + ":" + password);
             //    Console.WriteLine();
             //}
