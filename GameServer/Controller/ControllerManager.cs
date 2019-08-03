@@ -24,8 +24,8 @@ namespace GameServer.Controller
         public void InitController()
         {
             DefaultController controller = new DefaultController();
-            controllerDict.Add(RequestCode.RegisterRequest,new RegisterController());
-            controllerDict.Add(RequestCode.LoginRequest, new LoginController());
+            controllerDict.Add(RequestCode.User,new UserController());
+            controllerDict.Add(RequestCode.Room, new RoomController());
         }
 
         public void HandleRequest(RequestCode requestCode, ActionCode actionCode, string data, Client client,Server server)

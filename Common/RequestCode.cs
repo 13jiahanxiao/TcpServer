@@ -6,8 +6,8 @@ namespace Common
 {
     public enum RequestCode
     {
-        None,
-        LoginRequest,
-        RegisterRequest
+        None=0,
+        User,
+        Room
     }
 }

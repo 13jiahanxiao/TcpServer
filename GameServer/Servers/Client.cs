@@ -8,6 +8,7 @@ using System.Net;
 using Common;
 using MySql.Data.MySqlClient;
 using GameServer.Tools;
+using GameServer.Model;
 
 namespace GameServer.Servers
 {
@@ -22,6 +23,12 @@ namespace GameServer.Servers
             get { return mySqlConnect; }
         }
 
+        public User user;
+
+        public void SetUserData(User user)
+        {
+            this.user = user;
+        }
         Client() { }
         public Client(Socket clientSocket, Server server)
         {

@@ -7,6 +7,7 @@ using System.Net.Sockets;
 using System.Net;
 using Common;
 using GameServer.Controller;
+using GameServer.Model;
 
 namespace GameServer.Servers
 {
@@ -15,6 +16,11 @@ namespace GameServer.Servers
         IPEndPoint ipEndPoint;
         Socket serverSocket;
         List<Client> clientList;
+        List<Room> roomList;
+        public List<Room> RoomList
+        {
+            get { return roomList; }
+        }
         ControllerManager controllerManager;
 
         Server()
@@ -38,6 +44,7 @@ namespace GameServer.Servers
             serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             serverSocket.Bind(ipEndPoint);
             clientList = new List<Client>();
+            roomList = new List<Room>();
             serverSocket.Listen(0);
             serverSocket.BeginAccept(AcceptCallBack, null);
         }
@@ -67,6 +74,13 @@ namespace GameServer.Servers
         public void HandleRequset(RequestCode requestCode, ActionCode actionCode, string data, Client client)
         {
             controllerManager.HandleRequest(requestCode, actionCode, data, client,this);
+        }
+
+        public void CreateRoom(Client client)
+        {
+            Room room = new Room();
+            room.SetRoomInfo(client);
+            roomList.Add(room);
         }
     }
 }
